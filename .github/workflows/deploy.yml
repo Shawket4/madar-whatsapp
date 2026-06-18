@@ -59,11 +59,14 @@ jobs:
       - name: Pull image and restart
         env:
           DEPLOY_IMAGE: ${{ env.IMAGE }}:sha-${{ github.sha }}
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GH_ACTOR: ${{ github.actor }}
         run: |
           ssh -i ~/.ssh/deploy_key -p 22 root@187.124.33.153 \
-              "DEPLOY_IMAGE='${DEPLOY_IMAGE}' bash -s" << 'SCRIPT'
+              "DEPLOY_IMAGE='${DEPLOY_IMAGE}' GHCR_TOKEN='${GHCR_TOKEN}' GH_ACTOR='${GH_ACTOR}' bash -s" << 'SCRIPT'
           set -e
 
+          echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GH_ACTOR" --password-stdin
           docker pull "$DEPLOY_IMAGE"
 
           WHATSAPP_IMAGE="$DEPLOY_IMAGE" \
