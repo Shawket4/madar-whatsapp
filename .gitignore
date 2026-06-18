@@ -1,0 +1,7 @@
+# whatsmeow session store + our name↔jid sidecar (contain live credentials)
+*.db
+*.db-shm
+*.db-wal
+whatsapp-sessions.json
+# compiled binary
+/sufrix-whatsapp
