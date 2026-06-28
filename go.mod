@@ -1,4 +1,4 @@
-module sufrix-whatsapp
+module madar-whatsapp
 
 go 1.25.0
 

@@ -1,7 +1,7 @@
-// sufrix-whatsapp — a small multi-client WhatsApp send gateway for local testing
-// of the Sufrix delivery OTP + status messages.
+// madar-whatsapp — a small multi-client WhatsApp send gateway for local testing
+// of the Madar delivery OTP + status messages.
 //
-// It speaks the exact contract the Rust backend calls (see SufrixRust
+// It speaks the exact contract the Rust backend calls (see MadarRust
 // src/delivery/whatsapp.rs): POST /send/message {phone, message} with an optional
 // Authorization header. Multiple WhatsApp numbers can be linked ("sessions");
 // /send/message picks one via the optional "session" field, the WA_DEFAULT_SESSION

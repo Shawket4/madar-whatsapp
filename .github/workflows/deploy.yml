@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE: ghcr.io/shawket4/sufrix-whatsapp
+  IMAGE: ghcr.io/shawket4/madar-whatsapp
 
 jobs:
   build-push:
@@ -70,14 +70,14 @@ jobs:
           docker pull "$DEPLOY_IMAGE"
 
           WHATSAPP_IMAGE="$DEPLOY_IMAGE" \
-            docker compose -f /opt/sufrix-rust/docker-compose.yml \
-            up -d --no-deps --pull never sufrix-whatsapp
+            docker compose -f /opt/madar-rust/docker-compose.yml \
+            up -d --no-deps --pull never madar-whatsapp
 
           sleep 3
-          docker compose -f /opt/sufrix-rust/docker-compose.yml \
-            ps sufrix-whatsapp | grep -q "Up" && echo "✅ whatsapp up" || {
-            docker compose -f /opt/sufrix-rust/docker-compose.yml \
-              logs sufrix-whatsapp --tail 30
+          docker compose -f /opt/madar-rust/docker-compose.yml \
+            ps madar-whatsapp | grep -q "Up" && echo "✅ whatsapp up" || {
+            docker compose -f /opt/madar-rust/docker-compose.yml \
+              logs madar-whatsapp --tail 30
             exit 1
           }
           SCRIPT

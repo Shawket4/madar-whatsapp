@@ -4,4 +4,4 @@
 *.db-wal
 whatsapp-sessions.json
 # compiled binary
-/sufrix-whatsapp
+/madar-whatsapp
