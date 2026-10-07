@@ -1,6 +1,6 @@
 # ── Stage 1: build ────────────────────────────────────────────────────────────
 # CGO required for mattn/go-sqlite3
-FROM golang:1.25-alpine AS builder
+FROM golang:1.26-alpine AS builder
 WORKDIR /app
 RUN apk add --no-cache gcc musl-dev
 COPY go.mod go.sum ./
